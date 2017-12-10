@@ -23,7 +23,7 @@ updateR <- function() {
   if (saved == 2) {
     tmp <- installed.packages()
     installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
-    npack <- length(installedpks)
+    npack <- length(installedpkgs)
     cat("You are now saving",npack,"packages to",getwd(),"\n")
     save(installedpkgs, file = "installed_old.rda")
   } else if (saved == 1) {
