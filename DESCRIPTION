@@ -1,9 +1,10 @@
 Package: WSC
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.2)
-License: What license is it under?
+Title: Wallingford Senior Center
+Version: 0.1.0
+Authors@R: person("Bryan D", "Martin", email = "bmartin6@uw.edu", role = c("aut", "cre"))
+Description: Helpful R commands for the Wallingford Senior Center.
+Depends: R (>= 3.2.0)
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
