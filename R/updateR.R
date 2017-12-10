@@ -26,6 +26,7 @@ updateR <- function() {
     npack <- length(installedpkgs)
     cat("You are now saving",npack,"packages to",getwd(),"\n")
     save(installedpkgs, file = "installed_old.rda")
+    cat("Now close R, download the latest R version from www.r-project.org, then re-run this function. \n")
   } else if (saved == 1) {
     # Check that they have updated R, prompt to if not.
     updated <- menu(c("Yes", "No"), title = cat("After saving, have you closed R and installed the newest version?"))
@@ -37,7 +38,7 @@ updateR <- function() {
       checkUpdate <-  menu(c("Yes", "No"), title = cat("Is this correct?"))
       if (checkUpdate ==  1) {
         load("installed_old.rda")
-        npack <- length(installedpks)
+        npack <- length(installedpkgs)
         # Check you are loading what you think.
         checkPackages <-  menu(c("Yes", "No"), title = cat("You have loaded",npack,"packages. Does this seem correct?"))
         if (checkPackages == 1) {
