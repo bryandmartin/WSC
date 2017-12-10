@@ -23,6 +23,8 @@ updateR <- function() {
   if (saved == 2) {
     tmp <- installed.packages()
     installedpkgs <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+    npack <- length(installedpks)
+    cat("You are now saving",npack,"packages to",getwd(),"\n")
     save(installedpkgs, file = "installed_old.rda")
   } else if (saved == 1) {
     # Check that they have updated R, prompt to if not.
@@ -35,11 +37,18 @@ updateR <- function() {
       checkUpdate <-  menu(c("Yes", "No"), title = cat("Is this correct?"))
       if (checkUpdate ==  1) {
         load("installed_old.rda")
-        tmp <- installed.packages()
-        installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
-        missing <- setdiff(installedpkgs, installedpkgs.new)
-        install.packages(missing)
-        update.packages(ask = FALSE)
+        npack <- length(installedpks)
+        # Check you are loading what you think.
+        checkPackages <-  menu(c("Yes", "No"), title = cat("You have loaded",npack,"packages. Does this seem correct?"))
+        if (checkPackages == 1) {
+          tmp <- installed.packages()
+          installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
+          missing <- setdiff(installedpkgs, installedpkgs.new)
+          install.packages(missing)
+          update.packages(ask = FALSE)
+        } else {
+          cat("Make sure you are using the same filepath as when you saved your packages. Check and try again. \n")
+        }
       } else {
         cat("Something went wrong and you are not using the updated version of R. Please redownload and try again. \n")
       }
