@@ -13,7 +13,7 @@ updateR <- function() {
   if (useCur == 1) {
     fp <- getwd()
   } else {
-    fp <- readline("Enter the working directory to store or load your packages. \n")
+    fp <- readline("Enter the working directory to store or load your packages. Do not use quotes! \n")
   }
   # Change working directory.
   setwd(fp)
