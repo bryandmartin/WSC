@@ -13,6 +13,8 @@ lsos(..., n = 10)
 Memory manage trick courtesy of Stack Exchange
 }
 \examples{
+\dontrun{
 lsos(n = 10)
+}
 
 }

@@ -10,6 +10,8 @@ updateR()
 A function to update R without losing packages, intended for Macs.
 }
 \examples{
+\dontrun{
 updateR()
+}
 
 }

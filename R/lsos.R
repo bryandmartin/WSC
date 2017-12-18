@@ -27,7 +27,9 @@
 #' @param n How many objects to show.
 #'
 #' @examples
+#' \dontrun{
 #' lsos(n = 10)
+#' }
 #'
 #' @export
 lsos <- function(..., n = 10) {
