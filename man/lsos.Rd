@@ -7,6 +7,8 @@
 lsos(..., n = 10)
 }
 \arguments{
+\item{...}{Other optional arguments to .ls.objects}
+
 \item{n}{How many objects to show.}
 }
 \description{

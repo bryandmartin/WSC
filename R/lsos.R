@@ -7,8 +7,8 @@
   obj.mode <- napply(names, mode)
   obj.type <- ifelse(is.na(obj.class), obj.mode, obj.class)
   obj.prettysize <- napply(names, function(x) {
-    capture.output(format(utils::object.size(x), units = "auto")) })
-  obj.size <- napply(names, object.size)
+    utils::capture.output(format(utils::object.size(x), units = "auto")) })
+  obj.size <- napply(names, utils::object.size)
   obj.dim <- t(napply(names, function(x)
     as.numeric(dim(x))[1:2]))
   vec <- is.na(obj.dim)[, 1] & (obj.type != "function")
@@ -18,13 +18,14 @@
   if (!missing(order.by))
     out <- out[order(out[[order.by]], decreasing = decreasing), ]
   if (head)
-    out <- head(out, n)
+    out <- utils::head(out, n)
   out
 }
 
 #' Memory manage trick courtesy of Stack Exchange
 #'
 #' @param n How many objects to show.
+#' @param ... Other optional arguments to .ls.objects
 #'
 #' @examples
 #' \dontrun{
