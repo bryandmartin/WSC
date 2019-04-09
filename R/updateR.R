@@ -47,8 +47,14 @@ updateR <- function() {
           tmp <- utils::installed.packages()
           installedpkgs.new <- as.vector(tmp[is.na(tmp[,"Priority"]), 1])
           missing <- setdiff(installedpkgs, installedpkgs.new)
-          utils::install.packages(missing)
-          utils::update.packages(ask = FALSE)
+          if (length(missing) != 0) {
+            utils::install.packages(missing)
+          }
+          updatePackages <- utils::menu(c("Yes", "No"), title = cat("Packages installed. Would you like to update them?"))
+          if (updatePackages == 1) {
+            utils::update.packages(ask = FALSE)
+          }
+          cat("All done! \n")
         } else {
           cat("Make sure you are using the same filepath as when you saved your packages. Check and try again. \n")
         }
